@@ -1,5 +1,5 @@
 steps:
-  - label: "🔨 Build / :go: 1.14"
+  - label: "🔨 Build :go: 1.14"
     command: "./build.sh"
     env:
       USER: buildkite-agent
