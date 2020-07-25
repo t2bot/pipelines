@@ -17,7 +17,6 @@ steps:
       - "tar -C . -xzf go.tar.gz"
       - "echo '--- make docker image'"
       - "docker build -t complement-media-repo -f Complement.Dockerfile ."
-      - "echo '--- fix script permissions'"
-      - "chmod +x ci-complement.sh" # To fix the script
       - "echo '+++ run tests'"
-      - "PATH=$PATH:$CWD/go/bin ./ci-complement.sh"
+      - "chmod +x ci-complement.sh" # To fix the script
+      - "PATH=$PATH:$(pwd)/go/bin ./ci-complement.sh"
