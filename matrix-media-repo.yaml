@@ -1,7 +1,6 @@
 steps:
   - label: "🔨 Build :go: 1.14"
     commands: 
-      - "chown -R buildkite-agent:buildkite-agent /var/lib/buildkite-agent/builds/buildkite-01-1/t2bot/matrix-media-repo"
       - "./build.sh"
     plugins:
       - docker#v3.0.1:
