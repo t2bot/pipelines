@@ -20,4 +20,4 @@ steps:
       - "echo '--- fix script permissions'"
       - "chmod +x ci-complement.sh" # To fix the script
       - "echo '+++ run tests'"
-      - "PATH=$PATH:$PWD/go/bin ./ci-complement.sh"
+      - "PATH=$PATH:$CWD/go/bin ./ci-complement.sh"
