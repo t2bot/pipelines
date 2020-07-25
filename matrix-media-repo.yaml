@@ -14,7 +14,7 @@ steps:
     commands: 
       - "echo '--- install go 1.14'"
       - "curl -L https://golang.org/dl/go1.14.6.linux-amd64.tar.gz > go.tar.gz"
-      - "tar -C . xzf go.tar.gz"
+      - "tar -C . -xzf go.tar.gz"
       - "export PATH=$PATH:$PWD/go/bin"
       - "echo '--- make docker image'"
       - "docker build -t complement-media-repo -f Complement.Dockerfile ."
