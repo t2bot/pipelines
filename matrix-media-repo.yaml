@@ -1,4 +1,17 @@
 steps:
+  - label: "🤝 Complement"
+    env:
+      COMPLEMENT_BASE_IMAGE: complement-dendrite
+      COMPLEMENT_VERSION_CHECK_ITERATIONS: 400
+    commands: 
+      - "echo '--- install go 1.14'"
+      - "curl -L https://golang.org/dl/go1.14.6.linux-amd64.tar.gz > go.tar.gz"
+      - "tar -C . -xzf go.tar.gz"
+      - "apt-get install build-essential"
+      - "echo '+++ run tests'"
+      - "chmod +x ci-complement.sh" # To fix the script
+      - "PATH=$PATH:$(pwd)/go/bin ./ci-complement.sh"
+steps__:
   - label: "🔨 Build :go: 1.14"
     commands: 
       - "echo '+++ build'"
