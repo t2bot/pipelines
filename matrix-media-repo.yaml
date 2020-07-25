@@ -1,14 +1,12 @@
 steps:
   - label: "🔨 Build :go: 1.14"
     commands: 
-      - "chown -R buildkite-agent:buildkite-agent /var/lib/buildkite-agent/builds/buildkite-01-1/t2bot/matrix-media-repo"
       - "./build.sh"
   - label: "🤝 Complement"
     env:
       COMPLEMENT_BASE_IMAGE: complement-media-repo
       COMPLEMENT_VERSION_CHECK_ITERATIONS: 400
     commands: 
-      - "chown -R buildkite-agent:buildkite-agent /var/lib/buildkite-agent/builds/buildkite-01-1/t2bot/matrix-media-repo"
-      - "docker build -t complement-media-repo -f Complement.Dockerfile --build-arg UID=$(id -u) --build-arg GID=$(id -u) ."
+      - "docker build -t complement-media-repo -f Complement.Dockerfile ."
       - "chmod +x ci-complement.sh" # To fix the script
       - "./ci-complement.sh"
