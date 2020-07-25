@@ -9,7 +9,7 @@ steps:
       - "tar -C . -xzf go.tar.gz"
       - "echo '--- make docker image'"
       - "git clone --depth=1 https://github.com/matrix-org/complement.git tmp"
-      - "docker build -t complement-dendrite -f ./tmp/dockerfiles/Dednrite.Dockerfile ./tmp/dockerfiles"
+      - "docker build -t complement-dendrite -f ./tmp/dockerfiles/Dendrite.Dockerfile ./tmp/dockerfiles"
       - "echo '+++ run tests'"
       - "chmod +x ci-complement.sh" # To fix the script
       - "PATH=$PATH:$(pwd)/go/bin ./ci-complement.sh"
