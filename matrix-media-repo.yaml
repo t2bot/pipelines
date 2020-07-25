@@ -1,0 +1,12 @@
+steps:
+  - label: "🔨 Build / :go: 1.14"
+    command: "./build.sh"
+    plugins:
+      - docker#v3.0.1:
+          image: "golang:1.14"
+          mount-buildkite-agent: false
+  - label: "🤝 Complement"
+    commands: 
+      - "docker build -t complement-media-repo -f Complement.Dockerfile ."
+      - "chmod +x ci-complement.sh" # To fix the script
+      - "./ci-complement.sh"
