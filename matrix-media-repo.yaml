@@ -2,7 +2,6 @@ steps:
   - label: "🔨 Build :go: 1.14"
     commands: 
       - "./build.sh"
-      - "chown -R buildkite-agent:buildkite-agent \"${BUILDS_PATH}/${AGENT_DIR}/${ORG_DIR}/${PIPELINE_DIR}\""
     plugins:
       - docker#v3.0.1:
           image: "golang:1.14"
@@ -15,4 +14,3 @@ steps:
       - "docker build -t complement-media-repo -f Complement.Dockerfile ."
       - "chmod +x ci-complement.sh" # To fix the script
       - "./ci-complement.sh"
-      - "chown -R buildkite-agent:buildkite-agent \"${BUILDS_PATH}/${AGENT_DIR}/${ORG_DIR}/${PIPELINE_DIR}\""
