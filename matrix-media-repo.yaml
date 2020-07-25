@@ -7,7 +7,7 @@ steps:
       - "echo '--- install go 1.14'"
       - "curl -L https://golang.org/dl/go1.14.6.linux-amd64.tar.gz > go.tar.gz"
       - "tar -C . -xzf go.tar.gz"
-      - "sudo yum groupinstall 'Development Tools'"
+      - "sudo yum -y install gcc gcc-c++ make "
       - "echo '+++ run tests'"
       - "chmod +x ci-complement.sh" # To fix the script
       - "PATH=$PATH:$(pwd)/go/bin ./ci-complement.sh"
