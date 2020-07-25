@@ -2,14 +2,15 @@ steps:
   - label: "🔨 Build / :go: 1.14"
     command: "./build.sh"
     env:
-      COMPLEMENT_BASE_IMAGE: complement-media-repo
-      COMPLEMENT_VERSION_CHECK_ITERATIONS: 400
       USER: buildkite-agent
     plugins:
       - docker#v3.0.1:
           image: "golang:1.14"
           mount-buildkite-agent: false
   - label: "🤝 Complement"
+    env:
+      COMPLEMENT_BASE_IMAGE: complement-media-repo
+      COMPLEMENT_VERSION_CHECK_ITERATIONS: 400
     commands: 
       - "docker build -t complement-media-repo -f Complement.Dockerfile ."
       - "chmod +x ci-complement.sh" # To fix the script
