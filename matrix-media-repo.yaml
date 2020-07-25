@@ -13,9 +13,8 @@ steps:
       COMPLEMENT_VERSION_CHECK_ITERATIONS: 400
     commands: 
       - "echo '--- install go 1.14'"
-      - "add-apt-repository ppa:longsleep/golang-backports -y"
-      - "apt-get update"
-      - "apt-get install -y golang-go"
+      - "curl https://golang.org/dl/go1.14.6.linux-amd64.tar.gz --output go.tgz"
+      - "tar -C /usr/local -xzf go.tgz"
       - "echo '--- make docker image'"
       - "docker build -t complement-media-repo -f Complement.Dockerfile ."
       - "echo '--- fix script permissions'"
