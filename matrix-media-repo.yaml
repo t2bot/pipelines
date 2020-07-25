@@ -9,6 +9,6 @@ steps:
       COMPLEMENT_VERSION_CHECK_ITERATIONS: 400
     commands: 
       - "chown -R buildkite-agent:buildkite-agent /var/lib/buildkite-agent/builds/buildkite-01-1/t2bot/matrix-media-repo"
-      - "docker build -t complement-media-repo -f Complement.Dockerfile ."
+      - "docker build -t complement-media-repo -f Complement.Dockerfile --build-arg UID=$(id -u) --build-arg GID=$(id -u) ."
       - "chmod +x ci-complement.sh" # To fix the script
       - "./ci-complement.sh"
