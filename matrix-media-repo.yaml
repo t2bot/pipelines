@@ -12,6 +12,10 @@ steps:
       COMPLEMENT_BASE_IMAGE: complement-media-repo
       COMPLEMENT_VERSION_CHECK_ITERATIONS: 400
     commands: 
+      - "echo '--- install go 1.14'"
+      - "add-apt-repository ppa:longsleep/golang-backports -y"
+      - "apt-get update"
+      - "apt-get install -y golang-go"
       - "echo '--- make docker image'"
       - "docker build -t complement-media-repo -f Complement.Dockerfile ."
       - "echo '--- fix script permissions'"
