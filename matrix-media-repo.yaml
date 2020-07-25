@@ -11,6 +11,7 @@ steps:
     env:
       COMPLEMENT_BASE_IMAGE: complement-media-repo
       COMPLEMENT_VERSION_CHECK_ITERATIONS: 400
+      USER: buildkite-agent
     commands: 
       - "docker build -t complement-media-repo -f Complement.Dockerfile ."
       - "chmod +x ci-complement.sh" # To fix the script
