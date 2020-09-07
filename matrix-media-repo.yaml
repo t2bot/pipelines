@@ -22,9 +22,26 @@ steps:
       - docker#v3.0.1:
           image: "golang:1.14"
           mount-buildkite-agent: false
-  #- label: "🤝 Complement"
-  #  env:
-  #    COMPLEMENT_BASE_IMAGE: complement-media-repo
-  #    COMPLEMENT_VERSION_CHECK_ITERATIONS: 400
-  #  commands: 
-  #    - "TODO: COPY FROM DENDRITE TESTING"
+  - label: "🤝 Complement"
+    env:
+      COMPLEMENT_BASE_IMAGE: complement-media-repo
+      COMPLEMENT_VERSION_CHECK_ITERATIONS: 400
+    commands: 
+      - "echo '--- prepare image'"
+      - "docker build -t complement-media-repo -f Complement.Dockerfile ."
+      - "echo '+++ run tests'"
+      - "chmod +x ci-complement.sh" # To fix the script
+      - "./ci-complement.sh"
+    plugins:
+      - docker#v3.5.0:
+          # The dockerfile for this image is at https://github.com/matrix-org/complement/blob/master/dockerfiles/ComplementCIBuildkite.Dockerfile.
+          image: "matrixdotorg/complement:latest"
+          mount-buildkite-agent: false
+          # Complement needs to know if it is running under CI
+          environment:
+           - "CI=true"
+          publish: [ "8448:8448" ]
+          # Complement uses Docker so pass through the docker socket. This means Complement shares
+          # the host's Docker.
+          volumes:
+            - "/var/run/docker.sock:/var/run/docker.sock"
