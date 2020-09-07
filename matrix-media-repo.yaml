@@ -1,18 +1,3 @@
-steps_DENDRITE_TEST:
-  - label: "🤝 Complement"
-    env:
-      COMPLEMENT_BASE_IMAGE: complement-dendrite
-      COMPLEMENT_VERSION_CHECK_ITERATIONS: 400
-    commands: 
-      - "echo '--- install go 1.14'"
-      - "curl -L https://golang.org/dl/go1.14.6.linux-amd64.tar.gz > go.tar.gz"
-      - "tar -C . -xzf go.tar.gz"
-      - "echo '--- make docker image'"
-      - "git clone --depth=1 https://github.com/matrix-org/complement.git tmp"
-      - "docker build -t complement-dendrite -f ./tmp/dockerfiles/Dendrite.Dockerfile ./tmp/dockerfiles"
-      - "echo '+++ run tests'"
-      - "chmod +x ci-complement.sh" # To fix the script
-      - "PATH=$PATH:$(pwd)/go/bin ./ci-complement.sh"
 steps:
   - label: "🔨 Build :go: 1.14"
     commands: 
@@ -23,9 +8,6 @@ steps:
           image: "golang:1.14"
           mount-buildkite-agent: false
   - label: "🤝 Complement"
-    env:
-      COMPLEMENT_BASE_IMAGE: complement-media-repo
-      COMPLEMENT_VERSION_CHECK_ITERATIONS: 400
     commands: 
       - "echo '--- prepare image'"
       - "docker build -t complement-media-repo -f Complement.Dockerfile ."
@@ -40,6 +22,8 @@ steps:
           # Complement needs to know if it is running under CI
           environment:
            - "CI=true"
+           - "COMPLEMENT_BASE_IMAGE=complement-media-repo"
+           - "COMPLEMENT_VERSION_CHECK_ITERATIONS=400"
           publish: [ "8448:8448" ]
           # Complement uses Docker so pass through the docker socket. This means Complement shares
           # the host's Docker.
