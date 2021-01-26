@@ -1,4 +1,15 @@
 steps:
+  - label: ":eslint: :typescript: :node: 14"
+    commands: 
+      - "echo '--- install'"
+      - "yarn install"
+      - "echo '+++ build'"
+      - "yarn lint"
+    plugins:
+      - docker#v3.0.1:
+          image: "node:14"
+          mount-buildkite-agent: false
+
   - label: ":babel: :typescript: :node: 10"
     commands: 
       - "echo '--- install'"
@@ -6,16 +17,6 @@ steps:
       - "echo '+++ build'"
       - "yarn build"
       - "yarn build:examples"
-    plugins:
-      - docker#v3.0.1:
-          image: "node:10"
-          mount-buildkite-agent: false
-  - label: ":eslint: :typescript: :node: 10"
-    commands: 
-      - "echo '--- install'"
-      - "yarn install"
-      - "echo '+++ build'"
-      - "yarn lint"
     plugins:
       - docker#v3.0.1:
           image: "node:10"
@@ -42,16 +43,6 @@ steps:
       - docker#v3.0.1:
           image: "node:12"
           mount-buildkite-agent: false
-  - label: ":eslint: :typescript: :node: 12"
-    commands: 
-      - "echo '--- install'"
-      - "yarn install"
-      - "echo '+++ build'"
-      - "yarn lint"
-    plugins:
-      - docker#v3.0.1:
-          image: "node:12"
-          mount-buildkite-agent: false
   - label: ":mocha: :typescript: :node: 12"
     commands: 
       - "echo '--- install'"
@@ -70,16 +61,6 @@ steps:
       - "echo '+++ build'"
       - "yarn build"
       - "yarn build:examples"
-    plugins:
-      - docker#v3.0.1:
-          image: "node:14"
-          mount-buildkite-agent: false
-  - label: ":eslint: :typescript: :node: 14"
-    commands: 
-      - "echo '--- install'"
-      - "yarn install"
-      - "echo '+++ build'"
-      - "yarn lint"
     plugins:
       - docker#v3.0.1:
           image: "node:14"
