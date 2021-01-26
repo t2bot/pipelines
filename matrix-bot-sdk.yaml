@@ -1,5 +1,5 @@
 steps:
-  - label: ":babel: :ts: :node: 1.10"
+  - label: ":babel: :typescript: :node: 10"
     commands: 
       - "echo '--- install'"
       - "npm install -g yarn@1"
@@ -9,9 +9,9 @@ steps:
       - "yarn build:examples"
     plugins:
       - docker#v3.0.1:
-          image: "node:1.10"
+          image: "node:10"
           mount-buildkite-agent: false
-  - label: ":eslint: :ts: :node: 1.10"
+  - label: ":eslint: :typescript: :node: 10"
     commands: 
       - "echo '--- install'"
       - "npm install -g yarn@1"
@@ -20,9 +20,9 @@ steps:
       - "yarn lint"
     plugins:
       - docker#v3.0.1:
-          image: "node:1.10"
+          image: "node:10"
           mount-buildkite-agent: false
-  - label: ":mocha: :ts: :node: 1.10"
+  - label: ":mocha: :typescript: :node: 10"
     commands: 
       - "echo '--- install'"
       - "npm install -g yarn@1"
@@ -31,10 +31,10 @@ steps:
       - "yarn test"
     plugins:
       - docker#v3.0.1:
-          image: "node:1.10"
+          image: "node:10"
           mount-buildkite-agent: false
 
-  - label: ":babel: :ts: :node: 1.12"
+  - label: ":babel: :typescript: :node: 12"
     commands: 
       - "echo '--- install'"
       - "npm install -g yarn@1"
@@ -44,9 +44,9 @@ steps:
       - "yarn build:examples"
     plugins:
       - docker#v3.0.1:
-          image: "node:1.12"
+          image: "node:12"
           mount-buildkite-agent: false
-  - label: ":eslint: :ts: :node: 1.12"
+  - label: ":eslint: :typescript: :node: 12"
     commands: 
       - "echo '--- install'"
       - "npm install -g yarn@1"
@@ -55,9 +55,9 @@ steps:
       - "yarn lint"
     plugins:
       - docker#v3.0.1:
-          image: "node:1.12"
+          image: "node:12"
           mount-buildkite-agent: false
-  - label: ":mocha: :ts: :node: 1.12"
+  - label: ":mocha: :typescript: :node: 12"
     commands: 
       - "echo '--- install'"
       - "npm install -g yarn@1"
@@ -66,10 +66,10 @@ steps:
       - "yarn test"
     plugins:
       - docker#v3.0.1:
-          image: "node:1.12"
+          image: "node:12"
           mount-buildkite-agent: false
 
-  - label: ":babel: :ts: :node: 1.14"
+  - label: ":babel: :typescript: :node: 14"
     commands: 
       - "echo '--- install'"
       - "npm install -g yarn@1"
@@ -79,9 +79,9 @@ steps:
       - "yarn build:examples"
     plugins:
       - docker#v3.0.1:
-          image: "node:1.14"
+          image: "node:14"
           mount-buildkite-agent: false
-  - label: ":eslint: :ts: :node: 1.14"
+  - label: ":eslint: :typescript: :node: 14"
     commands: 
       - "echo '--- install'"
       - "npm install -g yarn@1"
@@ -90,9 +90,9 @@ steps:
       - "yarn lint"
     plugins:
       - docker#v3.0.1:
-          image: "node:1.14"
+          image: "node:14"
           mount-buildkite-agent: false
-  - label: ":mocha: :ts: :node: 1.14"
+  - label: ":mocha: :typescript: :node: 14"
     commands: 
       - "echo '--- install'"
       - "npm install -g yarn@1"
@@ -101,5 +101,5 @@ steps:
       - "yarn test"
     plugins:
       - docker#v3.0.1:
-          image: "node:1.14"
+          image: "node:14"
           mount-buildkite-agent: false
