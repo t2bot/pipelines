@@ -1,0 +1,96 @@
+steps:
+  - label: ":babel: :ts: :node: 1.10"
+    commands: 
+      - "echo '--- install'"
+      - "yarn install"
+      - "echo '+++ build'"
+      - "yarn build"
+      - "yarn build:examples"
+    plugins:
+      - docker#v3.0.1:
+          image: "node:1.10"
+          mount-buildkite-agent: false
+  - label: ":eslint: :ts: :node: 1.10"
+    commands: 
+      - "echo '--- install'"
+      - "yarn install"
+      - "echo '+++ build'"
+      - "yarn lint"
+    plugins:
+      - docker#v3.0.1:
+          image: "node:1.10"
+          mount-buildkite-agent: false
+  - label: ":mocha: :ts: :node: 1.10"
+    commands: 
+      - "echo '--- install'"
+      - "yarn install"
+      - "echo '+++ build'"
+      - "yarn test"
+    plugins:
+      - docker#v3.0.1:
+          image: "node:1.10"
+          mount-buildkite-agent: false
+
+  - label: ":babel: :ts: :node: 1.12"
+    commands: 
+      - "echo '--- install'"
+      - "yarn install"
+      - "echo '+++ build'"
+      - "yarn build"
+      - "yarn build:examples"
+    plugins:
+      - docker#v3.0.1:
+          image: "node:1.12"
+          mount-buildkite-agent: false
+  - label: ":eslint: :ts: :node: 1.12"
+    commands: 
+      - "echo '--- install'"
+      - "yarn install"
+      - "echo '+++ build'"
+      - "yarn lint"
+    plugins:
+      - docker#v3.0.1:
+          image: "node:1.12"
+          mount-buildkite-agent: false
+  - label: ":mocha: :ts: :node: 1.12"
+    commands: 
+      - "echo '--- install'"
+      - "yarn install"
+      - "echo '+++ build'"
+      - "yarn test"
+    plugins:
+      - docker#v3.0.1:
+          image: "node:1.12"
+          mount-buildkite-agent: false
+
+  - label: ":babel: :ts: :node: 1.14"
+    commands: 
+      - "echo '--- install'"
+      - "yarn install"
+      - "echo '+++ build'"
+      - "yarn build"
+      - "yarn build:examples"
+    plugins:
+      - docker#v3.0.1:
+          image: "node:1.14"
+          mount-buildkite-agent: false
+  - label: ":eslint: :ts: :node: 1.14"
+    commands: 
+      - "echo '--- install'"
+      - "yarn install"
+      - "echo '+++ build'"
+      - "yarn lint"
+    plugins:
+      - docker#v3.0.1:
+          image: "node:1.14"
+          mount-buildkite-agent: false
+  - label: ":mocha: :ts: :node: 1.14"
+    commands: 
+      - "echo '--- install'"
+      - "yarn install"
+      - "echo '+++ build'"
+      - "yarn test"
+    plugins:
+      - docker#v3.0.1:
+          image: "node:1.14"
+          mount-buildkite-agent: false
