@@ -2,7 +2,6 @@ steps:
   - label: ":babel: :typescript: :node: 10"
     commands: 
       - "echo '--- install'"
-      - "npm install -g yarn@1"
       - "yarn install"
       - "echo '+++ build'"
       - "yarn build"
@@ -14,7 +13,6 @@ steps:
   - label: ":eslint: :typescript: :node: 10"
     commands: 
       - "echo '--- install'"
-      - "npm install -g yarn@1"
       - "yarn install"
       - "echo '+++ build'"
       - "yarn lint"
@@ -25,7 +23,6 @@ steps:
   - label: ":mocha: :typescript: :node: 10"
     commands: 
       - "echo '--- install'"
-      - "npm install -g yarn@1"
       - "yarn install"
       - "echo '+++ build'"
       - "yarn test"
@@ -37,7 +34,6 @@ steps:
   - label: ":babel: :typescript: :node: 12"
     commands: 
       - "echo '--- install'"
-      - "npm install -g yarn@1"
       - "yarn install"
       - "echo '+++ build'"
       - "yarn build"
@@ -49,7 +45,6 @@ steps:
   - label: ":eslint: :typescript: :node: 12"
     commands: 
       - "echo '--- install'"
-      - "npm install -g yarn@1"
       - "yarn install"
       - "echo '+++ build'"
       - "yarn lint"
@@ -60,7 +55,6 @@ steps:
   - label: ":mocha: :typescript: :node: 12"
     commands: 
       - "echo '--- install'"
-      - "npm install -g yarn@1"
       - "yarn install"
       - "echo '+++ build'"
       - "yarn test"
@@ -72,7 +66,6 @@ steps:
   - label: ":babel: :typescript: :node: 14"
     commands: 
       - "echo '--- install'"
-      - "npm install -g yarn@1"
       - "yarn install"
       - "echo '+++ build'"
       - "yarn build"
@@ -84,7 +77,6 @@ steps:
   - label: ":eslint: :typescript: :node: 14"
     commands: 
       - "echo '--- install'"
-      - "npm install -g yarn@1"
       - "yarn install"
       - "echo '+++ build'"
       - "yarn lint"
@@ -95,7 +87,6 @@ steps:
   - label: ":mocha: :typescript: :node: 14"
     commands: 
       - "echo '--- install'"
-      - "npm install -g yarn@1"
       - "yarn install"
       - "echo '+++ build'"
       - "yarn test"
