@@ -1,11 +1,11 @@
 steps:
-  - label: "🔨 Build :go: 1.14"
+  - label: "🔨 Build :go: 1.16"
     commands: 
       - "echo '+++ build'"
       - "./build.sh"
     plugins:
       - docker#v3.0.1:
-          image: "golang:1.14"
+          image: "golang:1.16"
           mount-buildkite-agent: false
   - label: "🤝 Complement"
     commands: 
