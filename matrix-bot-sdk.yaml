@@ -21,7 +21,7 @@ steps:
       - docker#v3.0.1:
           image: "node:12"
           mount-buildkite-agent: false
-  - label: ":mocha: :typescript: :node: 12 + Olm"
+  - label: ":mocha: :typescript: :node: 12"
     commands:
       - "echo '--- install'"
       - "yarn install"
@@ -31,18 +31,6 @@ steps:
       - docker#v3.0.1:
           image: "node:12"
           mount-buildkite-agent: false
-  - label: ":mocha: :typescript: :node: 12 w/o Olm"
-    commands:
-      - "echo '--- install'"
-      - "yarn install --ignore-optional"
-      - "echo '+++ build'"
-      - "yarn test"
-    plugins:
-      - docker#v3.0.1:
-          image: "node:12"
-          mount-buildkite-agent: false
-          environment:
-            - "BOTSDK_NO_CRYPTO_TESTS=true"
 
   - label: ":babel: :typescript: :node: 14"
     commands:
@@ -55,7 +43,7 @@ steps:
       - docker#v3.0.1:
           image: "node:14"
           mount-buildkite-agent: false
-  - label: ":mocha: :typescript: :node: 14 + Olm"
+  - label: ":mocha: :typescript: :node: 14"
     commands:
       - "echo '--- install'"
       - "yarn install"
@@ -65,15 +53,3 @@ steps:
       - docker#v3.0.1:
           image: "node:14"
           mount-buildkite-agent: false
-  - label: ":mocha: :typescript: :node: 14 w/o Olm"
-    commands:
-      - "echo '--- install'"
-      - "yarn install --ignore-optional"
-      - "echo '+++ build'"
-      - "yarn test"
-    plugins:
-      - docker#v3.0.1:
-          image: "node:14"
-          mount-buildkite-agent: false
-          environment:
-            - "BOTSDK_NO_CRYPTO_TESTS=true"
