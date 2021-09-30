@@ -1,0 +1,11 @@
+steps:
+  - label: ":mocha: :typescript: :node: 14"
+    commands:
+      - "echo '--- install'"
+      - "npm install"
+      - "echo '+++ test'"
+      - "npm test"
+    plugins:
+      - docker#v3.0.1:
+          image: "node:14"
+          mount-buildkite-agent: false
